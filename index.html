@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Page Example</title>
+    <title>Simple Link Example</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,28 +14,22 @@
             margin: 0;
             background-color: #f4f4f4;
         }
-        button {
-            background-color: #4285f4;
+        a {
+            text-decoration: none;
             color: white;
-            border: none;
+            background-color: #4285f4;
             padding: 15px 25px;
             font-size: 16px;
             border-radius: 5px;
-            cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        button:hover {
+        a:hover {
             background-color: #357ae8;
         }
     </style>
 </head>
 <body>
-    <button onclick="goToGoogle()">Go to Google</button>
-
-    <script>
-        function goToGoogle() {
-            window.location.href = "https://www.google.com";
-        }
-    </script>
+    <a href="https://www.google.com" target="_blank">Ir a Google</a>
 </body>
 </html>
+
