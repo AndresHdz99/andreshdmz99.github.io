@@ -16,6 +16,17 @@
                 window.AndroidInterface.pageWebNative("https://www.google.com"");
             }
         }
+
+        function backModule() {
+            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.backModule) {
+                // iOS
+                window.webkit.messageHandlers.backModule.postMessage("Clicked Back Module IOS");
+                
+            } else if (window.AndroidInterface && window.AndroidInterface.backModule) {
+                // Android
+                window.AndroidInterface.backModule("Clicked Back Module ANDROID");
+            }
+        }
         
     </script>
 </head>
@@ -26,7 +37,7 @@
         <button>Abrir Google</button>
     </a>
 
-    <button onclick="pageWebNative()">pane navegador nativo 2</button>
+    <button onclick=pageWebNative()>pane navegador nativo 3</button>
     
 </body>
 </html>
