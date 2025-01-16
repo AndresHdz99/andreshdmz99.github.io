@@ -1,47 +1,41 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebView Button</title>
-    <script>
-        
-        function backModule() {
-            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.backModule) {
-                // iOS
-                window.webkit.messageHandlers.backModule.postMessage("https://www.google.com/");
-                
-            } else if (window.AndroidInterface && window.AndroidInterface.backModule) {
-                // Android
-                window.AndroidInterface.backModule("Clicked Back Module ANDROID");
-            }
+    <title>Web Page Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
         }
-        
-        function backInitNav() {
-            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.backInitNav) {
-                // iOS
-                window.webkit.messageHandlers.backInitNav.postMessage("Clicked Init IOS");
-                
-            } else if (window.AndroidInterface && window.AndroidInterface.backInitNav) {
-                // Android
-                window.AndroidInterface.backInitNav("Clicked Init ANDROID");
-            }
+        button {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        
-    </script>
+        button:hover {
+            background-color: #357ae8;
+        }
+    </style>
 </head>
 <body>
-   
-    
-    <button onclick="backModule()">Finish activity</button>
-    
-    
-    <button onclick="backInitNav()">Back Module</button>
+    <button onclick="goToGoogle()">Go to Google</button>
 
-    <a href="https://www.google.com" target="_blank">
-        <button>Abrir Google</button>
-    </a>
-
-    <a href="https://www.google.com" target="_blank">Abrir Google</a>
+    <script>
+        function goToGoogle() {
+            window.location.href = "https://www.google.com";
+        }
+    </script>
 </body>
 </html>
-
