@@ -6,27 +6,14 @@
     <title>Prueba de WebView</title>
     <script>
         
-        function pageWebNative() {
-            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.pageWebNative) {
-                // iOS
-                window.webkit.messageHandlers.pageWebNative.postMessage("https://www.google.com"");
-                
-            } else if (window.AndroidInterface && window.AndroidInterface.pageWebNative) {
-                // Android
-                window.AndroidInterface.pageWebNative("https://www.google.com"");
-            }
-        }
+      function sendMessageToNative() {
+    window.webkit.messageHandlers.pageWebNative.postMessage("Mensaje desde la web");
+}
 
-        function backModule() {
-            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.backModule) {
-                // iOS
-                window.webkit.messageHandlers.backModule.postMessage("Clicked Back Module IOS");
-                
-            } else if (window.AndroidInterface && window.AndroidInterface.backModule) {
-                // Android
-                window.AndroidInterface.backModule("Clicked Back Module ANDROID");
-            }
-        }
+function goBackModule() {
+    window.webkit.messageHandlers.backModule.postMessage("Volver al módulo principal");
+}
+
         
     </script>
 </head>
@@ -37,10 +24,10 @@
         <button>Abrir Google</button>
     </a>
 
-    <button onclick=pageWebNative()>pane navegador nativo 3</button>
+    <button onclick=sendMessageToNative()>pane navegador nativo 4</button>
 
     
-    <button onclick="backInitNav()">Back Module</button>
+    <button onclick="sendMessageToNative()">Back Module</button>
 </body>
 </html>
 
