@@ -1,33 +1,41 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba de WebView</title>
+    <title>WebView Button</title>
     <script>
         
-      function sendMessageToNative() {
-    window.webkit.messageHandlers.pageWebNative.postMessage("Mensaje desde la web");
-}
-
-function goBackModule() {
-    window.webkit.messageHandlers.backModule.postMessage("Volver al módulo principal");
-}
-
+        function backModule() {
+            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.backModule) {
+                // iOS
+                window.webkit.messageHandlers.backModule.postMessage("Clicked Back Module IOS");
+                
+            } else if (window.AndroidInterface && window.AndroidInterface.backModule) {
+                // Android
+                window.AndroidInterface.backModule("Clicked Back Module ANDROID");
+            }
+        }
+        
+        function backInitNav() {
+            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.backInitNav) {
+                // iOS
+                window.webkit.messageHandlers.backInitNav.postMessage("Clicked Init IOS");
+                
+            } else if (window.AndroidInterface && window.AndroidInterface.backInitNav) {
+                // Android
+                window.AndroidInterface.backInitNav("Clicked Init ANDROID");
+            }
+        }
         
     </script>
 </head>
 <body>
-    <h1>Bienvenido a la Prueba</h1>
-    <p>Haz clic en el botón para abrir un enlace en el navegador del dispositivo.</p>
-    <a href="https://www.google.com" target="_blank">
-        <button>Abrir Google</button>
-    </a>
-
-    <button onclick=sgoBackModule()>pane navegador nativo 1</button>
-
+   
     
-    <button onclick="goBackModule()">Back Module</button>
+    <button onclick="backModule()">Finish activity</button>
+    
+    
+    <button onclick="backInitNav()">Back Module</button>
 </body>
 </html>
 
