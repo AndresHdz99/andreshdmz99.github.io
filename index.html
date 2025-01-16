@@ -8,7 +8,7 @@
         function backModule() {
             if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.backModule) {
                 // iOS
-                window.webkit.messageHandlers.backModule.postMessage("Clicked Back Module IOS");
+                window.webkit.messageHandlers.backModule.postMessage("https://www.google.com/");
                 
             } else if (window.AndroidInterface && window.AndroidInterface.backModule) {
                 // Android
@@ -36,6 +36,10 @@
     
     
     <button onclick="backInitNav()">Back Module</button>
+
+    <a href="https://www.google.com" target="_blank">
+        <button>Abrir Google</button>
+    </a>
 </body>
 </html>
 
