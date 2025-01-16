@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prueba de WebView</title>
+    <script>
+        
+        function pageWebNative() {
+            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.backModule) {
+                // iOS
+                window.webkit.messageHandlers.backModule.postMessage("https://www.google.com"");
+                
+            } else if (window.AndroidInterface && window.AndroidInterface.backModule) {
+                // Android
+                window.AndroidInterface.backModule("https://www.google.com"");
+            }
+        }
+        
+    </script>
 </head>
 <body>
     <h1>Bienvenido a la Prueba</h1>
@@ -12,9 +26,8 @@
         <button>Abrir Google</button>
     </a>
 
-    <a href="https://www.google.com" >
-        <button>Abrir Google</button>
-    </a>
+    <button onclick="pageWebNative()">pane navegador nativo</button>
+    
 </body>
 </html>
 
