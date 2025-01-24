@@ -37,7 +37,7 @@
                 
             } else if (window.AndroidInterface && window.AndroidInterface.backModule) {
                 // Android
-                window.AndroidInterface.backModule("Clicked Back Module ANDROID");
+                window.AndroidInterface.backModule("https://www.google.com/");
             }
         }
         
@@ -51,13 +51,25 @@
                 window.AndroidInterface.backInitNav("Clicked Init ANDROID");
             }
         }
-        
+
+         function pageWebNative() {
+            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.pageWebNative) {
+                // iOS
+                window.webkit.messageHandlers.pageWebNative.postMessage("https://www.google.com/");
+                
+            } else if (window.AndroidInterface && window.AndroidInterface.pageWebNative) {
+                // Android
+                window.AndroidInterface.pageWebNative("https://www.google.com/");
+            }
+        }
+         
     </script>
 </head>
 <body>
     <a href="https://www.google.com" >Ir a Google </a>
 
     <button onclick="backModule()">Google Navegador</button>
+     <button onclick="pageWebNative()">Navegador Nativo</button>
 </body>
 </html>
 
