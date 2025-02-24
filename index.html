@@ -62,6 +62,17 @@
                 window.AndroidInterface.pageWebNative("https://www.google.com/");
             }
         }
+
+         function dismissHome() {
+            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.dismissHome) {
+                // iOS
+                window.webkit.messageHandlers.dismissHome.postMessage("Clicked Init IOS");
+                
+            } else if (window.AndroidInterface && window.AndroidInterface.dismissHome) {
+                // Android
+                window.AndroidInterface.dismissHome("Clicked Init ANDROID");
+            }
+        }
          
     </script>
 </head>
@@ -69,7 +80,8 @@
     <a href="https://www.google.com" >Ir a Google </a>
 
     <button onclick="backModule()">Google Navegador</button>
-     <button onclick="pageWebNative()">Navegador Nativo</button>
+    <button onclick="pageWebNative()">Navegador Nativo</button>
+    <button onclick="dismissHome()">Home Zeus</button>
 </body>
 </html>
 
